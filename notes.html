@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="c" width="500" height="500"></canvas>
+
+
+
+
+    <script src="js/resources.js"></script>
+  <!--  <script src="js/app.js"></script>
+    <script src="js/engine.js"></script> -->
+</body>
+</html>
+
+
+<script>
+  var c = document.querySelector("#c");
+  var ctx = c.getContext("2d");
+
+/*  ctx.fillRect(100, 100, 100 ,100);
+
+  ctx.strokeRect(50, 50, 50, 50);
+
+  ctx.beginPath();
+  ctx.moveTo(10, 10);
+  ctx.lineTo(50, 50);
+  ctx.lineTo(50, 10);
+  ctx.lineTo(10, 10);
+  //ctx.fill();
+  ctx.stroke();
+*/
+
+/*  ctx.strokeStyle = "#33CC33";
+
+ctx.strokeRect(50, 50, 100, 100);
+ctx.beginPath();
+ctx.moveTo(75, 75);
+ctx.lineTo(125, 125);
+ctx.lineTo(125, 75);
+ctx.lineTo(75, 75);
+ctx.fill();
+
+ctx.fillStyle = "blue";
+ctx.fill(); */
+
+ctx.font = "36pt Impact";
+ctx.textAlign = "center";
+
+ctx.fillStyle = "white";
+ctx.fillText("HELLO UDACITY!", c.width / 2, 40);
+
+ctx.strokeStyle = "black";
+ctx.lineWidth = 3;
+ctx.strokeText("HELLO UDACITY!", c.width / 2, 40);
+
+
+
+  </script>
