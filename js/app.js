@@ -1,3 +1,11 @@
+//zombie image provided by Irina Mir (irmirx)- http://opengameart.org/content/zombie-animations
+// license: Creative Commons CC-BY 3.0
+//I made the zombie smallers and flipped the zombie horizontally in photoshop
+
+//music by la.zlor - Some Weird Loop Sound.ogg
+// license: Creative Commons CC0 pubilic domain
+//music link - http://opengameart.org/content/weird-sound-loop
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
   // Variables applied to each of our instances go here,
@@ -14,10 +22,15 @@ var Enemy = function(x, y) {
   Resources.load(this.zombieList);
   this.sprite = this.zombieList[0];
 
+  this.loopCounter = 0;
+  this.spriteNumber = this.zombieList.length;
+  this.loopInterval = 20;
+  this.spriteCurrent = 0;
+
 
   this.x = x;
   this.y = y;
-  this.speed = 175 + 175 * Math.random();
+  this.speed = 40 + 40 * Math.random();
 };
 
 // Update the enemy's position, required method for game
@@ -40,10 +53,22 @@ Enemy.prototype.checkCollision = function() {
   var playerX = playerPos.x;
   var playerY = playerPos.y;
 
-  if (Math.abs(this.x - playerX) < 101 && this.y == playerY) {
+  if (Math.abs(this.x - playerX) < 50 && this.y == playerY) {
     player.reset(true);
   }
-
+  this.loopCounter++;
+  //make the enemy walk
+  if (this.loopCounter > this.loopInterval) {
+    //go to the next image
+    this.spriteCurrent++;
+    if (this.spriteCurrent >= this.spriteNumber) {
+      //reset to beinning enemy
+      this.spriteCurrent = 0;
+    }
+    this.loopCounter = 0;
+    //make the new enemy
+    this.sprite = this.zombieList[this.spriteCurrent];
+  }
 };
 
 
@@ -133,16 +158,23 @@ var allEnemies = [];
 allEnemies[0] = new Enemy(0, 83);
 allEnemies[1] = new Enemy(101, 166);
 allEnemies[2] = new Enemy(0, 249);
-var rn = Math.random();
-var newY;
-if (rn < 0.33) {
-  newY = 83;
-} else if (rn < 0.66) {
-  newY = 166;
-} else {
-  newY = 249;
+
+function randomRow() {
+  var rn = Math.random();
+  var newY;
+  if (rn < 0.33) {
+    newY = 83;
+  } else if (rn < 0.66) {
+    newY = 166;
+  } else {
+    newY = 249;
+  }
+  return newY;
 }
-allEnemies[3] = new Enemy(303, newY);
+allEnemies[3] = new Enemy(202, randomRow());
+allEnemies[4] = new Enemy(303, randomRow());
+allEnemies[5] = new Enemy(404, randomRow());
+allEnemies[6] = new Enemy(505, randomRow());
 
 
 
