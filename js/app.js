@@ -6,6 +6,8 @@
 // license: Creative Commons CC0 pubilic domain
 //music link - http://opengameart.org/content/weird-sound-loop
 
+
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
   // Variables applied to each of our instances go here,
@@ -79,13 +81,11 @@ Enemy.prototype.render = function() {
 
 };
 
-
-
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(x, y) {
-  this.sprite = 'images/char-princess-girl.png';
+  this.sprite = 'images/catHero.png';
   Resources.load(this.sprite);
   this.x = x;
   this.y = y;
@@ -100,6 +100,7 @@ Player.prototype.render = function() {
 
 Player.prototype.update = function() {};
 
+//this is calculating score
 Player.prototype.setScore = function() {
   ctx.clearRect(0, 0, 808, 555);
   ctx.font = 'italic 20pt Calibri';
@@ -107,6 +108,7 @@ Player.prototype.setScore = function() {
   ctx.fillText(this.myScore, 101, 30);
 };
 
+//this is how the player moves
 Player.prototype.handleInput = function(key) {
   if (this.checkKey) {
     if (key == 'up' && this.y >= 83) {
@@ -121,6 +123,7 @@ Player.prototype.handleInput = function(key) {
     if (key == 'right' && this.x < 707) {
       this.x = this.x + 101;
     }
+
     //this is where the player wins
     if (this.y <= 0) {
       this.checkKey = false;
