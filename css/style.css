@@ -1,3 +1,15 @@
 body {
     text-align: center;
+    background: #d0d0d0;
+}
+
+h2 {
+  font-family: 'Montserrat700', sans-serif;
+  color: #91575b;
+  text-decoration: overline;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  color:#91575b;
 }
