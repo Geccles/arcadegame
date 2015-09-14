@@ -5,10 +5,10 @@ frontend-nanodegree-arcade-game
 This arcade game is created through Object Oriented JavaScript. The object of this game is to get the cat hero across the woods safely without being attacked by a zombie.
 
 # Cat Hero
- (images/catHero.png)
+ !(images/catHero.png)
 
 # Zombie
-(images/appear10.png)
+!(images/appear10.png)
 
 # Background
 (images/background.jpg)
